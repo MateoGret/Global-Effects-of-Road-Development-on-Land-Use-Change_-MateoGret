@@ -15,8 +15,8 @@ Investigate the effect of roads on land use changes globally.
   Download here: [GRIP global roads database | GLOBIO - Global biodiversity model for policy support - homepage](https://www.globio.info)
 
 - Global land use data: (Matej et al., 2025; Table 5)  
- Download here: [Table 5 – List of repository links for data download](https://example.com/table5)
-and see the description of the layers: [Table 6 – Description of data layers](https://example.com/table6)
+ Download here: [Table 5 – List of repository links for data download](https://dein-richtiger-link-aus-word.de)
+and see the description of the layers:[Table 6 – Description of data layers](https://cds.climate.copernicus.eu/table6.pdf)
   
 ### Spatial analysis
 
