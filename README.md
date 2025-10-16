@@ -11,12 +11,13 @@ Investigate the effect of roads on land use changes globally.
 ## Methods
 
 ### Datasets
-- GRIP dataset: Global road dataset (Mejiers et al., 2018)  
-  Download here: [GRIP global roads database | GLOBIO - Global biodiversity model for policy support - homepage](https://www.globio.info)
+- GRIP dataset: Global road dataset (Mejiers et al., 2018) — download here:
+  [GRIP global roads database | GLOBIO - Global biodiversity model for policy support - homepage](https://www.globio.info/download-grip-dataset)
 
-- Global land use data: (Matej et al., 2025; Table 5)  
- Download here: [Table 5 – List of repository links for data download](https://dein-richtiger-link-aus-word.de)
-and see the description of the layers:[Table 6 – Description of data layers](https://cds.climate.copernicus.eu/table6.pdf)
+- Global land use data (Matej et al., 2025; Table 5) — download here:
+  [Table 5 – List of repository links for data download](https://www.globio.info/download-grip-dataset),
+  and see the description of the layers:
+  [Table 6 – List and description of land-use classes and data layers incorporated in the LUIcube](https://www.globio.info/download-grip-dataset).
   
 ### Spatial analysis
 
