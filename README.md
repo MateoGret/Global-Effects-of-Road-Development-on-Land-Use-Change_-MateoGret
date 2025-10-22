@@ -6,7 +6,8 @@ Although roads and mobility generate socio-economic benefits, roads also have nu
 Research has, however, mostly focused on specific interactions, e.g. between road development and deforestation (Kleinschroth and Healey, 2017) or on road development and settlement expansion (Veglio et al., 2025), and has not investigated the effects of roads on land use changes at the global scale.
 
 ## Goal
-Investigate the effect of roads on land use changes globally.
+To investigate whether and how land-use changes between 1992 and 2010 are spatially associated with existing roads, using road density and distance to road as continuous spatial variables.  
+The study focuses on spatial relationships, not on temporal causality.
 
 ## Methods
 
@@ -19,33 +20,46 @@ Investigate the effect of roads on land use changes globally.
   and see the description of the layers:
   [Table 6 – List and description of land-use classes and data layers incorporated in the LUIcube](https://www.nature.com/articles/s41597-025-04788-1/tables/6).
   
-### Spatial analysis
+### Spatial Analysis Workflow
 
-1. Overlay:  
-   Calculate the change in land uses between 2010 and 1992 using the difference between the raster pixels in the global land use data  
-   *ESACCI-LC-L4-LCCS-Map-300m-P1Y-1992-v2.0.7cds.nc* and *ESACCI-LC-L4-LCCS-Map-300m-P1Y-2010-v2.0.7.tif.*  
-   The raster cells will be 300×300 m.
+#### 1. Land-Use Change Detection  
+Compute land-use change (ΔLU) between 1992 and 2010 using 300 m resolution maps.  
+For each grid cell *i*:
+\[
+\Delta LU_i = LU_{2010,i} - LU_{1992,i}
+\]
+Aggregate the data to 1 km cells and calculate:  
+- **ΔLU_totalᵢ:** proportion of cell area that changed land-use class  
+- **ΔLU_forest→agricultureᵢ**, **ΔLU_agriculture→urbanᵢ**, etc.
 
-2. Buffer Analysis:
-   Aggregate the raster cells to 1 km.
+#### 2. Derive Continuous Road Variables  
+From the GRIP dataset, calculate for each 1 km grid cell:
+- **RoadDensityᵢ = total road length (km) / cell area (km²)**  
+- **RoadDistᵢ = Euclidean distance from cell centroid to nearest road (km)**  
 
-3. Spatial Correlation:
-   Overlay the land use change maps calculated in (2) with the global road dataset GRIP.
+These continuous variables represent spatial intensity and proximity of road infrastructure.
 
-4. Raster Calculations:
-   Analyze the relationship between road networks and different types of land use change (e.g., forest to agriculture, agriculture to urban), and evaluate how the extent of these changes varies across countries.
+#### 3. Spatial Overlay  
+Combine ΔLUᵢ (from Step 1) with RoadDensityᵢ and RoadDistᵢ (from Step 2).  
+Each 1 km cell contains both land-use change intensity and road characteristics.
+
+#### 4. Statistical Analysis  
+The spatial relationship between land-use change and road infrastructure will be examined using simple descriptive and correlation analyses.  
+We will:
+- Calculate the average land-use change (ΔLU) within defined distance and road density classes 
+- Explore how the intensity of land-use change varies with increasing distance from roads or with higher road density.
+
+The goal is to identify broad spatial patterns, rather than to model causal effects.
 
 ## Expected Results
 
-- Global map illustrating the influence of roads on land use changes:  
-  A worldwide map will be produced showing how roads have affected different types of land use changes between 1992 and 2010.  
-  Each type of land use transition (e.g., forest → agriculture, agriculture → urban area) will be represented in a different color, allowing a visual interpretation of spatial patterns and regional hotspots of road-induced changes.
+- **Global map of road–land use relationships:**  
+  Visualization of how land-use changes (1992–2010) cluster near roads, highlighting regions with high transformation intensity.
 
-- Country-level summary table of land use changes influenced by roads: 
-  A statistical table will summarize the extent and types of land use changes associated with road networks for each country.  
-  The table will show, for example, how many square kilometers of forest were converted to agriculture or urban areas near roads, providing a comparative overview of the magnitude and nature of road-related land use change across countries.
+- **Country-level summary statistics:**  
+  A table summarizing the proportion and type of land-use transitions within different distance or road-density classes.  
+  For example, how many km² of forest were converted to agriculture within 5 km of a major road.
 
----
 
 ## References
 
