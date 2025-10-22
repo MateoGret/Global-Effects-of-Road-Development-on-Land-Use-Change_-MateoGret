@@ -1,12 +1,12 @@
 # Global Effects of Road Development on Land Use Change — MateoGret
 
 ## Abstract
-Road development increases, by 2050, more than 25 million more paved road lane-km (Dulac, 2013).  
+Global road networks are projected to expand by more than 25 million additional paved lane-kilometers by 2050.(Dulac, 2013).  
 Although roads and mobility generate socio-economic benefits, roads also have numerous negative impacts on the environment, ecology, climate and human health and well-being. In particular, research has showed that “the first cut is the deepest”, meaning that the first roads in environmental intact areas are triggering a huge number of environmental problems (Laurance et al., 2009, Laurance et al., 2017).  
 Research has, however, mostly focused on specific interactions, e.g. between road development and deforestation (Kleinschroth and Healey, 2017) or on road development and settlement expansion (Veglio et al., 2025), and has not investigated the effects of roads on land use changes at the global scale.
 
 ## Goal
-To investigate whether and how land-use changes between 1992 and 2010 are spatially associated with existing roads, using road density and distance to road as continuous spatial variables.  
+To investigate whether and how land-use changes between 1992 and 2010 are spatially associated with existing roads, using road density and distance to road.  
 The study focuses on spatial relationships, not on temporal causality.
 
 ## Methods
