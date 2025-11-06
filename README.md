@@ -7,7 +7,9 @@ Research has, however, mostly focused on specific interactions, e.g. between roa
 
 ## Goal
 To investigate whether and how land-use changes between 1992 and 2010 are spatially associated with existing roads, using road density and distance to road.  
-The study focuses on spatial relationships, not on temporal causality.
+The study focuses on spatial relationships, not on temporal causality.  
+The analysis will focus on three representative 2°×2° regions to ensure feasibility and comparability: (1) Northern Kazakhstan (62–64°E, 52–54°N), (2) the Brazilian Cerrado (−46 to −44°E, −13.5 to −11.5°N), and (3) West Kalimantan, Borneo (109–111°E, 0–2°N).
+These regions were selected because they represent contrasting socio-ecological contexts and stages of development. Northern Kazakhstan illustrates post-Soviet agricultural expansion and reactivation of rural infrastructure; the Brazilian Cerrado is one of the world’s most dynamic agricultural frontiers, with rapid road-driven deforestation; and West Kalimantan in Borneo exemplifies tropical forest conversion and logging-road proliferation. Together, these areas allow for a comparative analysis of how roads influence land-use transitions across temperate, subtropical, and tropical environments.
 
 ## Methods
 
@@ -32,6 +34,8 @@ Aggregate the data to 1 km cells and calculate:
 - **ΔLU_totalᵢ:** proportion of cell area that changed land-use class  
 - **ΔLU_forest→agricultureᵢ**, **ΔLU_agriculture→urbanᵢ**, etc.
 
+To simplify the analysis, land-use classes will be reclassified into two categories: “used land” (cropland, built-up) and “unused land” (forest, natural vegetation). This binary classification will reduce complexity and highlight transitions from natural to human-modified areas.
+
 #### 2. Derive Continuous Road Variables  
 From the GRIP dataset, calculate for each 1 km grid cell:
 - **RoadDensityᵢ = total road length (km) / cell area (km²)**  
@@ -41,7 +45,8 @@ These continuous variables represent spatial intensity and proximity of road inf
 
 #### 3. Spatial Overlay  
 Combine ΔLUᵢ (from Step 1) with RoadDensityᵢ and RoadDistᵢ (from Step 2).  
-Each 1 km cell contains both land-use change intensity and road characteristics.
+Each 1 km cell contains both land-use change intensity and road characteristics.  
+All analyses will be restricted to the three defined regions (Kazakhstan, Cerrado, and Borneo).
 
 #### 4. Statistical Analysis  
 The spatial relationship between land-use change and road infrastructure will be examined using simple descriptive and correlation analyses.  
@@ -83,6 +88,3 @@ The goal is to identify broad spatial patterns, rather than to model causal effe
 
 - Matej et al. (2025). *A global land-use data cube 1992–2020 based on the Human Appropriation of Net Primary Production.*  
   [Scientific Data (Nature)](https://www.nature.com/sdata/)
-
-
- 
