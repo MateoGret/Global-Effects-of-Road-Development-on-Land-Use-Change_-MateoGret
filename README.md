@@ -76,7 +76,7 @@ Both examples focus on the African continent (−20–55°E, −35–38°N) to v
 
 library(terra)
 
-Pfade 
+#Pfade 
 base <- "C:/Users/mateo/OneDrive/Dokumente/5 Semster-Mäddes/Proseminar/GRIP4_density_total"
 f_density <- file.path(base, "grip4_total_dens_m_km2.asc")
 f_area    <- file.path(base, "grip4_area_land_km2.asc")
@@ -84,7 +84,7 @@ f_area    <- file.path(base, "grip4_area_land_km2.asc")
 rd <- rast(f_density)
 ar <- rast(f_area)
 
-Ozeane maskieren und Afrika eingrenzen
+#Ozeane maskieren und Afrika eingrenzen
 rd_land <- mask(rd, ar > 0)
 
 africa <- crop(rd_land, ext(-20, 55, -35, 38))
@@ -92,14 +92,14 @@ africa <- crop(rd_land, ext(-20, 55, -35, 38))
 
 africa_pos <- classify(africa, rbind(c(-Inf, 0, NA)))
 
-Kontrast erhöhen 
+#Kontrast erhöhen 
 q <- quantile(values(africa_pos), c(0.02, 0.98), na.rm = TRUE)
 africa_stretch <- clamp(africa_pos, lower = q[1], upper = q[2], values = TRUE)
 
 pal <- hcl.colors(30, "YlOrRd")
 brks <- seq(q[1], q[2], length.out = length(pal) + 1)
 
-Plot 
+#Plot 
 plot(
   africa_stretch,
   main   = "GRIP4 – Road Density in Africa ",
@@ -116,7 +116,7 @@ plot(
 if (!requireNamespace("terra", quietly = TRUE)) install.packages("terra")
 library(terra)
 
-Daten auswählen
+#Daten auswählen
 cat("\nWähle jetzt die Built-up Rasterdatei für 1992 (entpackte .tif)\n")
 bu_1992_file <- file.choose()
 cat("\nWähle jetzt die Built-up Rasterdatei für 2010 (entpackte .tif)\n")
@@ -135,10 +135,10 @@ if (!all.equal(res(BU92_af), res(BU10_af)) || !all.equal(ext(BU92_af), ext(BU10_
   BU10_af <- resample(BU10_af, BU92_af, method = "bilinear")
 }
 
-# 2010–1992
+#2010–1992
 dBU <- BU10_af - BU92_af
 
-# Plot
+#Plot
 q <- quantile(values(dBU), c(0.02, 0.98), na.rm = TRUE)
 dS <- clamp(dBU, q[1], q[2], values = TRUE)
 par(mar = c(4,4,3.5,2))
