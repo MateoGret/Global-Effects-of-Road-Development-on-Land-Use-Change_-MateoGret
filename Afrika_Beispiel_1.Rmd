@@ -1,0 +1,40 @@
+```{r}
+
+library(terra)
+
+#Pfade 
+base <- "C:/Users/mateo/OneDrive/Dokumente/5 Semster-Mäddes/Proseminar/GRIP4_density_total"
+f_density <- file.path(base, "grip4_total_dens_m_km2.asc")
+f_area    <- file.path(base, "grip4_area_land_km2.asc")
+
+rd <- rast(f_density)
+ar <- rast(f_area)
+
+# Ozeane maskieren und Afrika eingrenzen
+rd_land <- mask(rd, ar > 0)
+
+africa <- crop(rd_land, ext(-20, 55, -35, 38))
+
+
+africa_pos <- classify(africa, rbind(c(-Inf, 0, NA)))
+
+# Kontrast erhöhen 
+q <- quantile(values(africa_pos), c(0.02, 0.98), na.rm = TRUE)
+africa_stretch <- clamp(africa_pos, lower = q[1], upper = q[2], values = TRUE)
+
+pal <- hcl.colors(30, "YlOrRd")
+brks <- seq(q[1], q[2], length.out = length(pal) + 1)
+
+# Plot 
+plot(
+  africa_stretch,
+  main   = "GRIP4 – Road Density in Africa ",
+  col    = pal,
+  breaks = brks,
+  colNA  = "grey90",
+  legend = FALSE,    
+  axes   = TRUE,
+  mar    = c(4,4,3.5,2)
+)
+```
+
