@@ -70,88 +70,17 @@ The goal is to identify broad spatial patterns, rather than to model causal effe
 To demonstrate data accessibility and functionality, two short analytical checks were implemented in R — one for each dataset used in the study.  
 Both examples focus on the African continent (−20–55°E, −35–38°N) to verify that the data can be read, cropped, processed, and visualized correctly.
 
+### A) GRIP4 — Road Density 
+
 - [R Markdown file (`Afrika_Beispiel_1.Rmd`)](https://github.com/MateoGret/Global-Effects-of-Road-Development-on-Land-Use-Change_-MateoGret/blob/main/Afrika_Beispiel_1.Rmd)
 - [Rendered HTML version (`Afrika_Beispiel_1.html`)](https://github.com/MateoGret/Global-Effects-of-Road-Development-on-Land-Use-Change_-MateoGret/blob/main/Afrika_Beispiel_1.html)
 - [Road Density in Africa](https://github.com/MateoGret/Global-Effects-of-Road-Development-on-Land-Use-Change_-MateoGret/raw/main/roads_africa.png)
 
-### A) GRIP4 — Road Density 
+The map shows road density across Africa based on the GRIP4 dataset.  
+High densities appear in northern, southern, and coastal regions, while central areas remain sparse. 
 
-
-library(terra)
-
-#Pfade 
-base <- "C:/Users/mateo/OneDrive/Dokumente/5 Semster-Mäddes/Proseminar/GRIP4_density_total"
-f_density <- file.path(base, "grip4_total_dens_m_km2.asc")
-f_area    <- file.path(base, "grip4_area_land_km2.asc")
-
-rd <- rast(f_density)
-ar <- rast(f_area)
-
-#Ozeane maskieren und Afrika eingrenzen
-rd_land <- mask(rd, ar > 0)
-
-africa <- crop(rd_land, ext(-20, 55, -35, 38))
-
-
-africa_pos <- classify(africa, rbind(c(-Inf, 0, NA)))
-
-#Kontrast erhöhen 
-q <- quantile(values(africa_pos), c(0.02, 0.98), na.rm = TRUE)
-africa_stretch <- clamp(africa_pos, lower = q[1], upper = q[2], values = TRUE)
-
-pal <- hcl.colors(30, "YlOrRd")
-brks <- seq(q[1], q[2], length.out = length(pal) + 1)
-
-#Plot 
-plot(
-  africa_stretch,
-  main   = "GRIP4 – Road Density in Africa ",
-  col    = pal,
-  breaks = brks,
-  colNA  = "grey90",
-  legend = FALSE,    
-  axes   = TRUE,
-  mar    = c(4,4,3.5,2)
-)
 
 ### B) Built-up Area Change (1992 → 2010)
-
-if (!requireNamespace("terra", quietly = TRUE)) install.packages("terra")
-library(terra)
-
-#Daten auswählen
-cat("\nWähle jetzt die Built-up Rasterdatei für 1992 (entpackte .tif)\n")
-bu_1992_file <- file.choose()
-cat("\nWähle jetzt die Built-up Rasterdatei für 2010 (entpackte .tif)\n")
-bu_2010_file <- file.choose()
-
-BU92 <- rast(bu_1992_file)
-BU10 <- rast(bu_2010_file)
-
-#Afrika-Ausschnitt
-africa_ext <- ext(-20, 55, -35, 38)
-BU92_af <- crop(BU92, africa_ext)
-BU10_af <- crop(BU10, africa_ext)
-
-#Auflösung
-if (!all.equal(res(BU92_af), res(BU10_af)) || !all.equal(ext(BU92_af), ext(BU10_af))) {
-  BU10_af <- resample(BU10_af, BU92_af, method = "bilinear")
-}
-
-#2010–1992
-dBU <- BU10_af - BU92_af
-
-#Plot
-q <- quantile(values(dBU), c(0.02, 0.98), na.rm = TRUE)
-dS <- clamp(dBU, q[1], q[2], values = TRUE)
-par(mar = c(4,4,3.5,2))
-plot(
-  dS,
-  main = "Change in Built-up Area (2010–1992) — Africa",
-  col = hcl.colors(30, "RdYlGn", rev = TRUE),
-  colNA = "grey90",
-  axes = TRUE
-)
 
 
 
