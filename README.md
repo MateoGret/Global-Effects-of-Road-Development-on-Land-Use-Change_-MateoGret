@@ -10,7 +10,7 @@ To investigate whether and how land-use changes between 1992 and 2010 are spatia
 The study focuses on spatial relationships, not on temporal causality.  
 The analysis will focus on three representative 2°×2° regions to ensure feasibility and comparability: (1) Northern Kazakhstan (62–64°E, 52–54°N), (2) the Brazilian Cerrado (−46 to −44°E, −13.5 to −11.5°N), and (3) West Kalimantan, Borneo (109–111°E, 0–2°N).
 These regions were selected because they represent contrasting socio-ecological contexts and stages of development. Northern Kazakhstan illustrates post-Soviet agricultural expansion and reactivation of rural infrastructure; the Brazilian Cerrado is one of the world’s most dynamic agricultural frontiers, with rapid road-driven deforestation; and West Kalimantan in Borneo exemplifies tropical forest conversion and logging-road proliferation. Together, these areas allow for a comparative analysis of how roads influence land-use transitions across temperate, subtropical, and tropical environments.
-
+ 
 ## Methods
 
 ### Datasets
