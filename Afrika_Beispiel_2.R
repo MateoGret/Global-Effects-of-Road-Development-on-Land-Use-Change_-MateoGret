@@ -1,0 +1,47 @@
+
+if (!requireNamespace("terra", quietly = TRUE)) install.packages("terra")
+library(terra)
+
+#Daten auswählen
+cat("\nWähle jetzt die Built-up Rasterdatei für 1992 (entpackte .tif)\n")
+bu_1992_file <- file.choose()
+cat("\nWähle jetzt die Built-up Rasterdatei für 2010 (entpackte .tif)\n")
+bu_2010_file <- file.choose()
+
+BU92 <- rast(bu_1992_file)
+BU10 <- rast(bu_2010_file)
+
+#Afrika-Ausschnitt
+africa_ext <- ext(-20, 55, -35, 38)
+BU92_af <- crop(BU92, africa_ext)
+BU10_af <- crop(BU10, africa_ext)
+
+#Auflösung
+if (!all.equal(res(BU92_af), res(BU10_af)) || !all.equal(ext(BU92_af), ext(BU10_af))) {
+  BU10_af <- resample(BU10_af, BU92_af, method = "bilinear")
+}
+
+# 2010–1992
+dBU <- BU10_af - BU92_af
+
+# Plot
+q <- quantile(values(dBU), c(0.02, 0.98), na.rm = TRUE)
+dS <- clamp(dBU, q[1], q[2], values = TRUE)
+par(mar = c(4,4,3.5,2))
+plot(
+  dS,
+  main = "Change in Built-up Area (2010–1992) — Africa",
+  col = hcl.colors(30, "RdYlGn", rev = TRUE),
+  colNA = "grey90",
+  axes = TRUE
+)
+png("builtup_africa_change.png", width = 1200, height = 900, res = 150)
+plot(
+  dS,
+  main  = "Change in Built-up Area (2010–1992) — Africa",
+  col   = hcl.colors(30, "RdYlGn", rev = TRUE),
+  colNA = "grey90",
+  axes  = TRUE
+)
+dev.off()
+
