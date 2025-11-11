@@ -70,8 +70,8 @@ The goal is to identify broad spatial patterns, rather than to model causal effe
 To demonstrate data accessibility and functionality, two short analytical checks were implemented in R — one for each dataset used in the study.  
 Both examples focus on the African continent (−20–55°E, −35–38°N) to verify that the data can be read, cropped, processed, and visualized correctly.
 
-- 📄 [R Markdown file (`Afrika_Beispiel_1.Rmd`)](Afrika_Beispiel_1.Rmd)
-- 🌍 [Rendered HTML version (`Afrika_Beispiel_1.html`)](Afrika_Beispiel_1.html)
+- [R Markdown file (`Afrika_Beispiel_1.Rmd`)](https://github.com/MateoGret/Global-Effects-of-Road-Development-on-Land-Use-Change_-MateoGret/blob/main/Afrika_Beispiel_1.Rmd)
+- [Rendered HTML version (`Afrika_Beispiel_1.html`)](https://github.com/MateoGret/Global-Effects-of-Road-Development-on-Land-Use-Change_-MateoGret/blob/main/Afrika_Beispiel_1.html)
 
 ### A) GRIP4 — Road Density 
 
