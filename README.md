@@ -72,6 +72,7 @@ Both examples focus on the African continent (−20–55°E, −35–38°N) to v
 
 - [R Markdown file (`Afrika_Beispiel_1.Rmd`)](https://github.com/MateoGret/Global-Effects-of-Road-Development-on-Land-Use-Change_-MateoGret/blob/main/Afrika_Beispiel_1.Rmd)
 - [Rendered HTML version (`Afrika_Beispiel_1.html`)](https://github.com/MateoGret/Global-Effects-of-Road-Development-on-Land-Use-Change_-MateoGret/blob/main/Afrika_Beispiel_1.html)
+- [Road Density in Africa](https://github.com/MateoGret/Global-Effects-of-Road-Development-on-Land-Use-Change_-MateoGret/raw/main/roads_africa.png)
 
 ### A) GRIP4 — Road Density 
 
