@@ -82,6 +82,12 @@ High densities appear in northern, southern, and coastal regions, while central 
 
 ### B) Built-up Area Change (1992 → 2010)
 
+- [R Markdown file (`Afrika_Beispiel_2.Rmd`)](https://github.com/MateoGret/Global-Effects-of-Road-Development-on-Land-Use-Change_-MateoGret/raw/main/Afrika_Beispiel_2.Rmd)
+- [Rendered HTML version (`Afrika_Beispiel_2.html`)](https://github.com/MateoGret/Global-Effects-of-Road-Development-on-Land-Use-Change_-MateoGret/raw/main/Afrika_Beispiel_2.html)
+- [Built-up change in Africa (2010–1992)](https://github.com/MateoGret/Global-Effects-of-Road-Development-on-Land-Use-Change_-MateoGret/raw/main/builtup_africa_change.png)
+
+The map shows built-up area change (2010–1992) across Africa.  
+Reddish areas indicate increases in built-up extent; greenish areas indicate decreases.
 
 
 ## References
